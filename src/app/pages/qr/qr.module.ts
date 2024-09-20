@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { QrPageRoutingModule } from './qr-routing.module';
 
-import { QrPage } from './qr.page';
+import { qrPage } from './qr.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { QrPage } from './qr.page';
     IonicModule,
     QrPageRoutingModule
   ],
-  declarations: [QrPage]
+  declarations: [qrPage]
 })
 export class QrPageModule {}

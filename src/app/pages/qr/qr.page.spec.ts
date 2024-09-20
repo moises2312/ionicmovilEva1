@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { QrPage } from './qr.page';
+import { qrPage } from './qr.page';
 
 describe('QrPage', () => {
-  let component: QrPage;
-  let fixture: ComponentFixture<QrPage>;
+  let component: qrPage;
+  let fixture: ComponentFixture<qrPage>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(QrPage);
+  beforeEach((() => {
+    fixture = TestBed.createComponent(qrPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
