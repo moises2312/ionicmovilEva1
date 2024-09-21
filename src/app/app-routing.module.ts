@@ -35,7 +35,13 @@ const routes: Routes = [
   {
     path: 'correcto',
     loadChildren: () => import('./pages/correcto/correcto.module').then( m => m.CorrectoPageModule)
+  },  {
+    path: 'miclase',
+    loadChildren: () => import('./pages/miclase/miclase.module').then( m => m.MiclasePageModule)
   },
+
+
+
 ];
 
 @NgModule({
