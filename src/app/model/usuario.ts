@@ -174,7 +174,7 @@ export class Usuario extends Persona {
     if (this.cuenta.trim() !== '' && this.password.trim() !== '') {
       router.navigate([pagina], navigationExtras);
     } else {
-      router.navigate(['/login']);
+      router.navigate(['/login' ]);
     }
   }
 }

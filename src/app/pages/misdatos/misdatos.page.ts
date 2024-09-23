@@ -15,40 +15,47 @@ export class MisdatosPage implements OnInit, AfterViewInit {
   @ViewChild('itemCuenta', { read: ElementRef }) itemCuenta!: ElementRef;
   @ViewChild('itemNombre', { read: ElementRef }) itemNombre!: ElementRef;
   @ViewChild('itemApellido', { read: ElementRef }) itemApellido!: ElementRef;
+  @ViewChild('itemCorreo', { read: ElementRef }) itemCorreo!: ElementRef;
+  @ViewChild('itemPreguntaSecreta', { read: ElementRef }) itemPreguntaSecreta!: ElementRef;
+  @ViewChild('itemRespuestaSecreta', { read: ElementRef }) itemRespuestaSecreta!: ElementRef;
+  @ViewChild('itemPassword', { read: ElementRef }) itemPassword!: ElementRef;
   @ViewChild('itemEducacion', { read: ElementRef }) itemEducacion!: ElementRef;
   @ViewChild('itemFechaNacimiento', { read: ElementRef }) itemFechaNacimiento!: ElementRef;
-  
-  public usuario: Usuario;
+
+  public usuario: Usuario= new Usuario('', '', '', '', '', '', '',
+    NivelEducacional.findNivelEducacionalById(1)!, undefined);
+
   public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
 
-  
   constructor(
     private animationController: AnimationController,
     private activatedRoute: ActivatedRoute, 
     private router: Router
   ) { 
-    this.usuario = new Usuario('', '', '', '', '', '', '',
-      NivelEducacional.findNivelEducacionalById(1)!, undefined);
-    this.activatedRoute.queryParams.subscribe(params => {
-      const nav = this.router.getCurrentNavigation();
-      if (nav) {
-        if (nav.extras.state) {
-          this.usuario = nav.extras.state['usuario'];
-          return;
-        }
-      }
-      this.router.navigate(['/login']);
-    });
-    this.usuario.recibirUsuario(this.activatedRoute, this.router);
+
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.usuario.cuenta = 'atorres';
+    this.usuario.nombre = 'Ana';
+    this.usuario.apellido = 'Leiva';
+    this.usuario.correo = 'atorres@duocuc.cl';
+    this.usuario.preguntaSecreta= '¿Cuál es tu animal favorito?';
+    this.usuario.respuestaSecreta= 'gato';
+    this.usuario.nivelEducacional= NivelEducacional.findNivelEducacionalById(6)!;
+    this.usuario.fechaNacimiento = new Date(2000, 0, 1)
+    this.usuario.password = '1234';
+  }
+
+  public limpiar1(): void {
+
   }
 
   ngAfterViewInit() {
     this.animarTituloIzqDer();
+    
   }
-  
+
   animarTituloIzqDer() {
     this.animationController
       .create()
@@ -59,9 +66,12 @@ export class MisdatosPage implements OnInit, AfterViewInit {
       .fromTo('opacity', 0.5, 1)
       .play();
   }
+  public mostrarDatosPersonales() {
+  }
 
   navegar(pagina: string) {
     this.usuario.navegarEnviandousuario(this.router, pagina);
   }
-}
 
+
+}

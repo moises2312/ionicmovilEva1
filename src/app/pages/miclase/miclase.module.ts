@@ -8,6 +8,7 @@ import { MiclasePageRoutingModule } from './miclase-routing.module';
 
 import { MiclasePage } from './miclase.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

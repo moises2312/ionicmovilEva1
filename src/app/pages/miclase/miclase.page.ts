@@ -13,6 +13,7 @@ import { Usuario } from 'src/app/model/usuario';
 export class MiclasePage implements OnInit, AfterViewInit, MiclasePage {
   @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
   @ViewChild('page', { read: ElementRef }) page!: ElementRef;
+  
   datosQr = {
     sede: 'Alonso Ovalle',
     idAsignatura: 'PGY4121',
