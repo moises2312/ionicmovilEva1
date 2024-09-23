@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { NivelEducacional } from 'src/app/model/nivel-educacional';
 
-
-
 @Component({
   selector: 'app-correo',
   templateUrl: './correo.page.html',
