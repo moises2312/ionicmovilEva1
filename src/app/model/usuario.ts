@@ -142,6 +142,7 @@ export class Usuario extends Persona {
 
   recibirUsuario(activatedRoute: ActivatedRoute, router: Router) {
     activatedRoute.queryParams.subscribe(() => {
+      debugger
       const nav = router.getCurrentNavigation();
       if (nav) {
         if (nav.extras.state) {
@@ -165,6 +166,7 @@ export class Usuario extends Persona {
   }
 
   navegarEnviandousuario(router: Router, pagina: string) {
+    debugger
     const navigationExtras: NavigationExtras = {
       state: {
         cuenta: this.cuenta,

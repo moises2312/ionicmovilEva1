@@ -44,16 +44,6 @@ export class InicioPage implements OnInit, AfterViewInit {
     
     this.usuario = new Usuario('', '', '', '', '', '', '',
       NivelEducacional.findNivelEducacionalById(1)!, undefined);
-    this.activatedRoute.queryParams.subscribe(params => {
-      const nav = this.router.getCurrentNavigation();
-      if (nav) {
-        if (nav.extras.state) {
-          this.usuario = nav.extras.state['usuario'];
-          return;
-        }
-      }
-      this.router.navigate(['/login']);
-    });
     this.usuario.recibirUsuario(this.activatedRoute, this.router);
   }
 

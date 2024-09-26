@@ -21,7 +21,6 @@ export class LoginPage implements OnInit {
       NivelEducacional.findNivelEducacionalById(1)!, undefined);
       this.usuario.cuenta = '';
       this.usuario.password = '';
-    this.usuario.recibirUsuario(activatedRoute, router);
   }
   
   public ngOnInit(): void{
@@ -39,13 +38,8 @@ export class LoginPage implements OnInit {
         this.usuario.cuenta, this.usuario.password);
 
       if(usu){
-        const extras: NavigationExtras = {
-          state:{
-            usuario: usu
-          }
-        }
         this.mostrarMensaje('¡Bienvenido(a)!');
-        this.router.navigate(['/inicio'], extras); 
+        this.usuario.navegarEnviandousuario(this.router, 'inicio');
       }
     }
   }

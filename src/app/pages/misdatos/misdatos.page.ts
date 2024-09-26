@@ -32,7 +32,7 @@ export class MisdatosPage implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute, 
     private router: Router
   ) { 
-
+    
   }
 
   public ngOnInit(): void {
@@ -48,7 +48,15 @@ export class MisdatosPage implements OnInit, AfterViewInit {
   }
 
   public limpiar1(): void {
-
+    this.usuario.cuenta = '';
+    this.usuario.nombre = '';
+    this.usuario.apellido = '';
+    this.usuario.correo = '';
+    this.usuario.preguntaSecreta= '';
+    this.usuario.respuestaSecreta= '';
+    this.usuario.nivelEducacional= NivelEducacional.findNivelEducacionalById(1)!;
+    this.usuario.fechaNacimiento = undefined;
+    this.usuario.password = '';
   }
 
   ngAfterViewInit() {
